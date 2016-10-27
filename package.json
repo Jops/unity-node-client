@@ -1,0 +1,43 @@
+{
+  "name": "unity-node-client",
+  "version": "1.0.0",
+  "description": "Nodejs client using socket.io client for a nodejs server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run unit-tests",
+    "unit-tests": "mocha test",
+    "start": "node index.js",
+    "watch": "nodemon -q --exec \"node index.js\"",
+    "watch-unit-tests": "mocha test -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jops/unity-node-client.git"
+  },
+  "keywords": [
+    "node",
+    "client",
+    "unity"
+  ],
+  "author": "Jonathan HW Halkett",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jops/unity-node-client/issues"
+  },
+  "homepage": "https://github.com/Jops/unity-node-client#readme",
+  "dependencies": {
+    "config": "^1.21.0",
+    "socket.io-client": "^1.5.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "mocha": "^3.1.2",
+    "mockery": "^2.0.0",
+    "nodemon": "^1.11.0",
+    "rewire": "^2.5.2",
+    "sinon": "^1.17.6",
+    "sinon-chai": "^2.8.0",
+    "socket.io": "^1.5.1"
+  }
+}
