@@ -1,20 +1,17 @@
-var socket = require('socket.io-client'),
-	config = require('config'),
-	client = require('./socketClient');
+var config = require('config'),
+	ioClient = require('./socketeer/socketClient'),
+	trace = function (msg) { console.log(msg); },
+	client;
 
-function trace( msg ) { console.log( msg ); }
-
-function setListeners () {
-	socket.on('connect', function () { trace('connected to server.'); socket.emit('test'); } );
-	socket.on('serverTest', function ( data ) { trace('testing testing testing.'); } );
-	socket.on('disconnect', function () { trace('disconnected from server.'); } );
-}
+var serverMessage = function (data) {
+	trace( 'from server: ' + JSON.stringify(data) );
+};
 
 module.exports = function () {
 	var uri = process.argv[2] || config.uri,
 		port = process.argv[3] || config.port;
 
-	socket = socket( uri + ':' + port );
+	client = ioClient(uri, port, serverMessage);
 
-	setListeners();
+	client.send('command-list');
 };

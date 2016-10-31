@@ -5,7 +5,13 @@
  *	DATE: 28/10/16
  */
 
-module.exports = function()
+module.exports = function( eventName, data )
 {
-	return;
+	var msg = {
+		e: eventName
+	};
+
+	if( data ) msg.d = data;
+
+	return msg;
 };
