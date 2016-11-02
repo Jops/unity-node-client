@@ -3,31 +3,31 @@ var chai = require("chai"),
     sinon = require("sinon"),
     sinonChai = require("sinon-chai"),
     mockery = require('mockery'),
-    mockServer = require('./mockServer'),
     app;
 
 chai.use(sinonChai);
 
+var mockIOClient = function (uri, port, reciever) {
+    return {
+        mockResponce: function (data) {
+            reciever(data);
+        },
+        send: sinon.spy()
+    };
+};
+
 describe('app server usage', function() {
 
     before(function() {
+        mockery.registerMock('../app/socketeer/socketClient', mockIOClient);
+
         app = require('../app/app');
     });
 
-    describe.skip( '', function() {
-        it(
-            '',
-            function( done )
-            {
-                var key = '/thekey/file.png';
-                app.requestSignedUrl( mockRequest, key ).then(
-                    function( url ) {
-                        expect( url ).to.contain( key );
-                        done();
-                    }
-                );
-            }
-        );
-    });
+    it.skip(
+        '',
+        function() {
+        }
+    );
 
 });
