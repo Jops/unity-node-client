@@ -1,3 +1,3 @@
-var app = require( './app/server.js' );
+var app = require( './app/app' );
 
-app.start();
+app();
