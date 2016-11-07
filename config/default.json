@@ -1,6 +1,6 @@
 {
 	"uri": "http://localhost",
 	"port": "3000",
-	"identity": "elcapitano",
+	"identity": "REPLACE",
 	"sendTimeout": "16"
 }
